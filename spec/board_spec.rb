@@ -4,8 +4,8 @@ describe Board do
 
   let(:ship){double(:ship, place: true, placed?: true)}
 
-  it "has a grid" do
-    expect(subject.grid).to eq []
+  it "has a ships array" do
+    expect(subject.ships).to eq []
   end
 
   it "responds to place_ship method" do
@@ -13,12 +13,10 @@ describe Board do
   end
 
   describe "#place_ship" do
-    it "puts the ship into the grid" do
+    it "puts the ship into the ships array" do
       subject.place_ship(ship, :coordinate)
-      expect(subject.grid).to include(ship)
+      expect(subject.ships).to include(ship)
     end
   end
-  it "Can convert coordinates" do
-    expect(subject.coordinate_converter("J1")).to eq ([[9],[0]])
-  end
+
 end
