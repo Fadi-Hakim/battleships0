@@ -6,7 +6,7 @@ attr_reader :grid
     @grid = []
   end
 
-  def place_ship(ship)
+  def place_ship(ship, coordinate)
     grid << ship
   end
 
