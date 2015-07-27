@@ -18,4 +18,7 @@ describe Board do
       expect(subject.grid).to include(ship)
     end
   end
+  it "Can convert coordinates" do
+    expect(subject.coordinate_converter("J1")).to eq ([[9],[0]])
+  end
 end
