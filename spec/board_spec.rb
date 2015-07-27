@@ -2,6 +2,8 @@ require 'board'
 
 describe Board do
 
+  let(:ship){double(:ship, place: true, placed?: true)}
+
   it "has a grid" do
     expect(subject.grid).to eq []
   end
@@ -12,8 +14,8 @@ describe Board do
 
   describe "#place_ship" do
     it "puts the ship into the grid" do
-      subject.place_ship(:ship, :coordinate)
-      expect(subject.grid).to include(:ship)
+      subject.place_ship(ship, :coordinate)
+      expect(subject.grid).to include(ship)
     end
   end
 end

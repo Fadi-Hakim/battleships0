@@ -8,4 +8,7 @@ class Ship
     @placed
   end
 
+  def place
+    @placed = true
+  end
 end
