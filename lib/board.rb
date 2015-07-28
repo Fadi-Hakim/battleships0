@@ -5,19 +5,15 @@ class Board
 
   attr_reader :ships
 
-  def initialize(options)
-    @grid_area  = options[:grid_area]
-    @grid = options[:grid] || Grid
+  def initialize(options = {grid: Grid.new})
+    @grid = options[:grid]
     @ships = []
   end
 
-  def place_ship(ship, coordinate, grid)
+  def place_ship(ship, coordinate)
     ships << ship
     ship.place coordinate
-    grid.insert_ship(ship, coordinate)
+    @grid.insert_ship(ship, coordinate)
   end
 
-  def create_grid
-    @grid.new(@grid_area)
-  end
 end

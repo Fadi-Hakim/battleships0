@@ -10,17 +10,17 @@ describe Board do
   end
 
   it "responds to place_ship method" do
-    expect(subject).to respond_to(:place_ship).with(3).arguments
+    expect(subject).to respond_to(:place_ship).with(2).arguments
   end
 
   describe "#place_ship" do
     it "puts the ship into the ships array" do
-      subject.place_ship(ship, :coordinate, grid)
+      subject.place_ship(ship, :coordinate)
       expect(subject.ships).to include(ship)
     end
 
     it "places ship into grid" do
-      expect(subject.place_ship(ship, :coordinate, grid)).to be_truthy
+      expect(subject.place_ship(ship, :coordinate)).to be_truthy
     end
   end
 
