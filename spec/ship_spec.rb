@@ -39,7 +39,7 @@ describe Ship do
   end
 
   it "raises error if valid ship not given" do
-    expect{ described_class.not_valid }.to raise_error "not a valid ship type"
+    expect{ described_class.not_valid }.to raise_error(NameError)
   end
 
   describe "#place" do
@@ -49,10 +49,24 @@ describe Ship do
       expect(ship.coordinate).to eq :A1
     end
 
-    it 'can only be placed one' do
+    it "can only be placed one" do
       ship = described_class.destroyer
       ship.place :A1
       expect { ship.place :A1 }.to raise_error "ship has already been placed"
+    end
+  end
+
+  describe "#direction" do
+
+    it "has a default direction of north" do
+      ship = described_class.destroyer
+      expect(ship.direction).to eq :north
+    end
+
+    it "cane be changed" do
+      ship = described_class.destroyer
+      ship.change_direction :south
+      expect(ship.direction).to eq :south
     end
   end
 end

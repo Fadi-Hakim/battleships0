@@ -23,5 +23,4 @@ describe Board do
       expect(subject.place_ship(ship, :coordinate)).to be_truthy
     end
   end
-
 end
