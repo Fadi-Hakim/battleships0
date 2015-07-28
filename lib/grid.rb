@@ -3,10 +3,10 @@ class Grid
 attr_accessor :matrix  # => nil
 
   def initialize
-    @matrix = matrix
+    @matrix = matrix_builder
   end
 
-def matrix
+def matrix_builder
   row_1  = [:x, :x, :x, :x, :x, :x, :x, :x, :x, :x]
   row_2  = [:x, :x, :x, :x, :x, :x, :x, :x, :x, :x]
   row_3  = [:x, :x, :x, :x, :x, :x, :x, :x, :x, :x]
@@ -47,5 +47,6 @@ end
   def insert_ship(ship, coordinate)
     coordinate_converter(coordinate)
     @matrix[@x][@y] = ship
+
   end
 end
