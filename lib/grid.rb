@@ -1,6 +1,6 @@
 class Grid
 
-attr_reader :matrix  # => nil
+attr_reader :matrix
 
   def initialize(area = 10)
     @matrix = matrix_builder(area)

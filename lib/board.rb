@@ -8,10 +8,11 @@ attr_reader :ships
     @ships = []
   end
 
-  def place_ship(ship, coordinate)
+  def place_ship(ship, coordinate, grid)
     ships << ship
     ship.place coordinate
+    grid.insert_ship(ship, coordinate)
   end
 
-  
+
 end
