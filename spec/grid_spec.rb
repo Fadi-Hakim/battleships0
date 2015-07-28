@@ -1,8 +1,10 @@
 require 'grid'
 describe Grid do
   let(:ship) {double(:ship, {:placed => true})}
-  it "is initialized with a 2d array full of ':x's" do
-    expect(subject.matrix[5][5]).to eq (:x)
+  it "can be initialized for a certain area" do
+    area = rand(10)
+    grid = Grid.new(area)
+    expect(grid.matrix.length).to eq(area)
   end
 
   it "Can convert coordinates" do

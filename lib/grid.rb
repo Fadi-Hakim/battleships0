@@ -1,44 +1,23 @@
 class Grid
 
-attr_accessor :matrix  # => nil
+attr_reader :matrix  # => nil
 
-  def initialize
-    @matrix = matrix_builder
+  def initialize(area = 10)
+    @matrix = matrix_builder(area)
   end
 
-def matrix_builder
-  row_1  = [:x, :x, :x, :x, :x, :x, :x, :x, :x, :x]
-  row_2  = [:x, :x, :x, :x, :x, :x, :x, :x, :x, :x]
-  row_3  = [:x, :x, :x, :x, :x, :x, :x, :x, :x, :x]
-  row_4  = [:x, :x, :x, :x, :x, :x, :x, :x, :x, :x]
-  row_5  = [:x, :x, :x, :x, :x, :x, :x, :x, :x, :x]
-  row_6  = [:x, :x, :x, :x, :x, :x, :x, :x, :x, :x]
-  row_7  = [:x, :x, :x, :x, :x, :x, :x, :x, :x, :x]
-  row_8  = [:x, :x, :x, :x, :x, :x, :x, :x, :x, :x]
-  row_9  = [:x, :x, :x, :x, :x, :x, :x, :x, :x, :x]
-  row_10 = [:x, :x, :x, :x, :x, :x, :x, :x, :x, :x]
-
-  matrix = [row_1, row_2, row_3, row_4, row_5, row_6, row_7, row_8, row_9, row_10]
+def matrix_builder(area)
+  matrix = Array.new(area){Array.new(area)}
 end
 
   def coordinate_converter(coordinate)
-    letter_numbers = {
-      "A" => 0,
-      "B" => 1,
-      "C" => 2,
-      "D" => 3,
-      "E" => 4,
-      "F" => 5,
-      "G" => 6,
-      "H" => 7,
-      "I" => 8,
-      "J" => 9
-    }
+    alpha_table = {}
+    (('A'..'Z').zip(0..25)).each { |x| alpha_table[x[0]] = x[1] }
     coord_arr = coordinate.to_s.split('')
     x = coord_arr[0]
     y = coord_arr[1]
 
-    @x = letter_numbers[x.upcase]
+    @x = alpha_table[x.upcase]
     @y = (y.to_i - 1)
 
     conversion = [[@x],[@y]]
