@@ -1,8 +1,9 @@
 class Ship
-  SHIP_TYPES = {destroyer: 2, submarine: 3}
+  SHIP_TYPES = {destroyer: 2,cruiser: 3, submarine: 3, battleship: 4, aircraft_carrier: 5 }
 
-  def self.destroyer
-    Ship.new(SHIP_TYPES[__method__])
+  def self.method_missing(method)
+    raise "not a valid ship type" unless SHIP_TYPES.include?(method)
+    Ship.new(SHIP_TYPES[method])
   end
 
   attr_reader :coordinate, :size
