@@ -1,8 +1,16 @@
 class Ship
-  attr_reader :coordinate
-  def initialize
+  SHIP_TYPES = {destroyer: 2, submarine: 3}
+
+  def self.destroyer
+    Ship.new(SHIP_TYPES[__method__])
+  end
+
+  attr_reader :coordinate, :size
+
+  def initialize(size)
     @placed = false
     @coordinate
+    @size = size
   end
 
   def placed?
