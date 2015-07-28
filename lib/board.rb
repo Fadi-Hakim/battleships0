@@ -1,10 +1,13 @@
 require_relative "ship"
+require_relative "grid"
 
 class Board
 
-attr_reader :ships
+  attr_reader :ships
 
-  def initialize
+  def initialize(options)
+    @grid_area  = options[:grid_area]
+    @grid = options[:grid] || Grid
     @ships = []
   end
 
@@ -14,5 +17,7 @@ attr_reader :ships
     grid.insert_ship(ship, coordinate)
   end
 
-
+  def create_grid
+    @grid.new(@grid_area)
+  end
 end
